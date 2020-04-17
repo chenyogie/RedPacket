@@ -5,7 +5,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/redis_red_packet?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     username: root
-    password: 802134
+    password: 123456 # todo 此处密码需要修改
   rabbitmq:
     host: 192.168.1.5
     port: 5672
