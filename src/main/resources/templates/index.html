@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--导入thymeleaf命名空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script th:src="@{/js/jquery-3.4.1.min.js}" type="text/javascript"></script>-->
+    <script type="text/javascript" src="webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            for (let i = 0; i < 100; i++) {
+                $.post({
+                    url:"/grab?redPacketId=3&userId="+i,
+                    success:function (data) {
+                        console.log(data)
+                    }
+                })
+            }
+        })
+    </script>
+</head>
+<body>
+<span>请求中。。。</span>
+</body>
+</html>

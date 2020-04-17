@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yogie.mapper.RedPacketMapper">
+
+    <sql id="queryResult">
+        id,
+        user_id userId,
+        amount,
+        send_date sendDate,
+        total,
+        unit_amount unitAmount,
+        stock,
+        version,
+        note
+    </sql>
+
+    <select id="queryById" parameterType="int" resultType="com.yogie.domain.RedPacket">
+        select
+        <include refid="queryResult"></include>
+        from t_red_packet
+        where id=#{id}
+    </select>
+</mapper>

@@ -1,0 +1,48 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/redis_red_packet?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 802134
+  rabbitmq:
+    host: 192.168.1.5
+    port: 5672
+    username: admin
+    password: admin
+  redis:
+    host: 192.168.1.5
+    port: 6379
+    password: admin
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+    lettuce:
+      shutdown-timeout: 0
+  mvc:
+    static-path-pattern: /static/**
+  thymeleaf:
+    prefix: classpath:/templates/
+    #开发阶段，建议关闭thymeleaf的缓存
+    cache: false
+    #使用遗留的html5以去掉对html标签的校验
+    mode: HTML5
+    check-template: true
+    servlet.content-type: text/html
+    encoding: UTF-8
+    suffix: .html
+  resources:
+    static-locations: classpath:/static/,classpath:/view/,classpath:/public,classpath:/resources,classpath:/META-INF/resources
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.yogie.com.yogie.domain
+mq:
+  config:
+    exchange: chenyogie.user # 设置交换机名称
+    queue:
+      redPacket: chenyogie.redPacket # redPacket队列的名称
+
